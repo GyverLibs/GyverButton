@@ -1,8 +1,10 @@
 ![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
 ![author](https://img.shields.io/badge/author-AlexGyver-informational.svg)
+## ВНИМАНИЕ, БИБЛИОТЕКА УСТАРЕЛА!
+**ИСПОЛЬЗУЙ БИБЛИОТЕКУ [EncButton](https://github.com/GyverLibs/EncButton)**
+
 # GyverButton
 Библиотека для многофункциональной отработки нажатия кнопки  
-**ВНИМАНИЕ, БИБЛИОТЕКА УСТАРЕЛА! ИСПОЛЬЗУЙ БИБЛИОТЕКУ [EncButton](https://github.com/GyverLibs/EncButton)**
 - Работа с нормально замкнутыми и нормально разомкнутыми кнопками
 - Работа с подключением PULL_UP и PULL_DOWN
 - Опрос кнопки с программным антидребезгом контактов (настраиваемое время)	
