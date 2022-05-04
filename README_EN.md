@@ -1,3 +1,5 @@
+This is an automatic translation, may be incorrect in some places. See sources and examples!
+
 ## WARNING, THE LIBRARY IS OUT OF DATE!
 ### USE THE [EncButton] LIBRARY(https://github.com/GyverLibs/EncButton)
 It is much lighter, has more features and uses less CPU time!
