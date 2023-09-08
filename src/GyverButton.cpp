@@ -36,7 +36,7 @@ void GButton::setType(bool type) {
         _pin_reg = portInputRegister(digitalPinToPort(_PIN));
         _bit_mask = digitalPinToBitMask(_PIN);
 #endif
-    }	
+    }    
 }
 void GButton::setDirection(bool dir) {
     flags.inv_state = dir;
@@ -60,7 +60,7 @@ boolean GButton::isRelease() {
         return true;
     } else return false;
 }
-boolean GButton::isClick() {	
+boolean GButton::isClick() {    
     if (flags.tickMode) GButton::tick();
     if (flags.isOne_f) {
         flags.isOne_f = false;
@@ -86,17 +86,17 @@ boolean GButton::state() {
 boolean GButton::isSingle() {
     if (flags.tickMode) GButton::tick();
     if (flags.counter_flag && last_counter == 1) {
-        //		last_counter = 0;
-        //		flags.counter_flag = false;
-        flags.counter_reset = true;	
+        //        last_counter = 0;
+        //        flags.counter_flag = false;
+        flags.counter_reset = true;    
         return true;
     } else return false;
 }
 boolean GButton::isDouble() {
     if (flags.tickMode) GButton::tick();
     if (flags.counter_flag && last_counter == 2) {
-        //		flags.counter_flag = false;
-        //		last_counter = 0;
+        //        flags.counter_flag = false;
+        //        last_counter = 0;
         flags.counter_reset = true;
         return true;
     } else return false;
@@ -104,8 +104,8 @@ boolean GButton::isDouble() {
 boolean GButton::isTriple() {
     if (flags.tickMode) GButton::tick();
     if (flags.counter_flag && last_counter == 3) {
-        //		flags.counter_flag = false;
-        //		last_counter = 0;
+        //        flags.counter_flag = false;
+        //        last_counter = 0;
         flags.counter_reset = true;
         return true;
     } else return false;
@@ -113,20 +113,20 @@ boolean GButton::isTriple() {
 boolean GButton::hasClicks() {
     if (flags.tickMode) GButton::tick();
     if (flags.counter_flag) {
-        //		flags.counter_flag = false;
-        flags.counter_reset = true;	
+        //        flags.counter_flag = false;
+        flags.counter_reset = true;    
         return true;
     } else return false;
 }
 uint8_t GButton::getClicks() {
-    //	byte thisCount = last_counter;			// Исключено	14.01.2021
-    //		last_counter = 0;
-    flags.counter_reset = true;	
-    return last_counter;					//	return thisCount;	(замена)	14.01.2021
+    //    byte thisCount = last_counter;            // Исключено    14.01.2021
+    //        last_counter = 0;
+    flags.counter_reset = true;    
+    return last_counter;                    //    return thisCount;    (замена)    14.01.2021
 }
 uint8_t GButton::getHoldClicks() {
     if (flags.tickMode) GButton::tick();
-    return last_hold_counter;				//return flags.hold_flag ? last_hold_counter : 0;	(Замена)	 14.01.2021
+    return last_hold_counter;                //return flags.hold_flag ? last_hold_counter : 0;    (Замена)     14.01.2021
 }
 boolean GButton::isStep(byte clicks) {
     if (flags.tickMode) GButton::tick();
@@ -156,7 +156,7 @@ void GButton::tick(boolean state) {
     flags.mode = false;
 }
 
-void GButton::tick() {	
+void GButton::tick() {    
     // читаем пин
     if (!flags.mode && !flags.noPin) btn_state = !_buttonRead() ^ (flags.inv_state ^ flags.type);
     
@@ -169,7 +169,7 @@ void GButton::tick() {
             btn_timer = thisMls;
         } else {
             if (thisMls - btn_timer >= _debounce) {
-                btn_flag = true;			
+                btn_flag = true;            
                 flags.isPress_f = true;
                 flags.oneClick_f = true;
             }
@@ -188,8 +188,8 @@ void GButton::tick() {
         if (flags.step_flag) {
             last_counter = 0;
             btn_counter = 0;
-            flags.step_flag = false;	
-        }		
+            flags.step_flag = false;    
+        }        
         if (flags.oneClick_f) {
             flags.oneClick_f = false;
             flags.isOne_f = true;
@@ -215,7 +215,7 @@ void GButton::tick() {
         flags.counter_flag = true;
     }
     
-    // сброс накликивания						//Добавлено
+    // сброс накликивания                        //Добавлено
     if (flags.counter_reset) {
         last_counter = 0;
         flags.counter_flag = false;

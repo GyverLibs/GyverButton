@@ -35,7 +35,7 @@ public:
             int thisRead = analogRead(PIN);
             if (abs(thisRead - _lastRead) < _window) _ready = true;
             else _ready = false;
-            _lastRead = thisRead;		
+            _lastRead = thisRead;        
         }
         if (_ready &&
                 _lastRead > signals[num] - _window &&
@@ -45,7 +45,7 @@ public:
     
     // выводит номер нажатой кнопки или -1, если нажатых кнопок нет
     int pressed() {
-        status(0);	// вызываем опрос
+        status(0);    // вызываем опрос
         for (byte i = 0; i < AMOUNT; i++) {
             if (_ready &&
                     _lastRead > signals[i] - _window &&
